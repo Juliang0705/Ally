@@ -72,7 +72,6 @@ class MapViewController: UIViewController,MKMapViewDelegate {
      //   infoButton.backgroundColor = UIColor.
         
         annotationView.rightCalloutAccessoryView = infoButton
-        print ("HERE")
         return annotationView
     }
     
