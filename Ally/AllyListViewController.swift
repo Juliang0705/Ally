@@ -66,10 +66,6 @@ class AllyListViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        phone = allyDataArray[indexPath.row].2
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,7 +82,10 @@ class AllyListViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
         
         let destinationViewController = segue.destinationViewController as? TextMessageController
-        destinationViewController!.phone = phone
+        let cell = sender as? AllyCell
+        let index = tableView.indexPathForCell(cell!)!.row
+        destinationViewController!.phone = allyDataArray[index].2
+        print (destinationViewController!.phone)
     }
     
     

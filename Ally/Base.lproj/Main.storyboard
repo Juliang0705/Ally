@@ -289,7 +289,7 @@
             </objects>
             <point key="canvasLocation" x="1801" y="352"/>
         </scene>
-        <!--Ally List View Controller-->
+        <!--Available Allies-->
         <scene sceneID="olT-88-aPo">
             <objects>
                 <viewController id="Lbl-bc-zaZ" customClass="AllyListViewController" customModule="Ally" customModuleProvider="target" sceneMemberID="viewController">
@@ -363,7 +363,7 @@
                             <constraint firstAttribute="trailing" secondItem="WoQ-1p-X19" secondAttribute="trailing" id="qEK-ro-eUc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="j2X-Y0-Gxr"/>
+                    <navigationItem key="navigationItem" title="Available Allies" id="j2X-Y0-Gxr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tableView" destination="WoQ-1p-X19" id="QRv-sA-WgW"/>

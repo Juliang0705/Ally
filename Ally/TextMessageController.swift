@@ -18,10 +18,10 @@ class TextMessageController: UIViewController, MFMessageComposeViewControllerDel
         let messageVC = MFMessageComposeViewController()
         
         messageVC.body = "Hey I need help, are you available";
-        messageVC.recipients = ["2145078272"]
+        messageVC.recipients = [phone!]
         messageVC.messageComposeDelegate = self;
         presentViewController(messageVC, animated: true, completion: {
-            self.navigationController?.popViewControllerAnimated(true)
+          //  self.navigationController?.popViewControllerAnimated(true)
         })
         
     }
