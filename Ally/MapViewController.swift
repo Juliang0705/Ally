@@ -50,6 +50,13 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                             let dropPin = MKPointAnnotation()
                             dropPin.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
                             dropPin.title = value?.valueForKey("name") as? String
+                            if let availability = value?.valueForKey("availability") as? String{
+                                if availability == "true"{
+                                    dropPin.subtitle = "Available Now"
+                                }else{
+                                    dropPin.subtitle = "Unavailable"
+                                }
+                            }
                             self.map.addAnnotation(dropPin)
                             self.nameKeyDict[(value?.valueForKey("name") as? String)!] = key as? String
                         }
@@ -62,8 +69,11 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "location"
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        
-        annotationView.pinTintColor = UIColor.greenColor()
+        if annotationView.annotation!.subtitle! == "Available Now"{
+            annotationView.pinTintColor = UIColor.greenColor()
+        }else{
+            annotationView.pinTintColor = UIColor.redColor()
+        }
         annotationView.draggable = true
         annotationView.canShowCallout = true
         annotationView.animatesDrop = true

@@ -20,6 +20,7 @@
 		38B39F611C65DED200EC433A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F601C65DED200EC433A /* Location.swift */; };
 		38B39F631C65F91E00EC433A /* AllyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F621C65F91E00EC433A /* AllyInfoViewController.swift */; };
 		38B39F651C665E4800EC433A /* AllyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F641C665E4800EC433A /* AllyInfoTableViewCell.swift */; };
+		38B39F671C66723E00EC433A /* AllyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F661C66723E00EC433A /* AllyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		38B39F601C65DED200EC433A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		38B39F621C65F91E00EC433A /* AllyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllyInfoViewController.swift; sourceTree = "<group>"; };
 		38B39F641C665E4800EC433A /* AllyInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		38B39F661C66723E00EC433A /* AllyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllyViewController.swift; sourceTree = "<group>"; };
 		4F89359575098641D5643DE8 /* Pods_Ally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		501EDE33F231C8AA84FEA09C /* Pods-Ally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ally.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ally/Pods-Ally.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				38B39F5E1C65DAB300EC433A /* MapViewController.swift */,
 				056E8E841C663FD6008AB785 /* AllyListViewController.swift */,
 				38B39F621C65F91E00EC433A /* AllyInfoViewController.swift */,
+				38B39F661C66723E00EC433A /* AllyViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B39F671C66723E00EC433A /* AllyViewController.swift in Sources */,
 				38B39F471C6591AA00EC433A /* ViewController.swift in Sources */,
 				38B39F651C665E4800EC433A /* AllyInfoTableViewCell.swift in Sources */,
 				38B39F5D1C65CF0500EC433A /* UserViewController.swift in Sources */,

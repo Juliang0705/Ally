@@ -48,14 +48,26 @@ class LoginViewController: UIViewController {
                     let allyRef = self.rootRef.childByAppendingPath("ally/\(self.uid)")
                     allyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         self.userData = (UserType.ALLY,snapshot.value as?NSDictionary)
-                        print (self.userData?.1)
+                        if self.userData!.1 == nil{
+                            let alert = UIAlertController(title: nil, message: "You are not an ally yet", preferredStyle: .Alert)
+                            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                            self.presentViewController(alert,animated: true,completion: nil)
+                        }else{
+                            self.performSegueWithIdentifier("AllyViewController", sender: self)
+                        }
                     })
                 }else if userType == 1{ // is user
                     let userRef = self.rootRef.childByAppendingPath("user/\(self.uid)")
                     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         self.userData = (UserType.USER,snapshot.value as?NSDictionary)
+                        if self.userData!.1 == nil{
+                            let alert = UIAlertController(title: nil, message: "You are not an user", preferredStyle: .Alert)
+                            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                            self.presentViewController(alert,animated: true,completion: nil)
+                        }else{
+                            self.performSegueWithIdentifier("UserViewController", sender: self)
+                        }
                     })
-                    self.performSegueWithIdentifier("UserViewController", sender: self)
                 }
             }else{
                 //fail
@@ -72,11 +84,15 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController as? UserViewController
-        destinationViewController?.userData = userData
-        destinationViewController?.rootURL = rootURL
+        let destinationViewController1 = segue.destinationViewController as? UserViewController
+        destinationViewController1?.userData = userData
+        destinationViewController1?.rootURL = rootURL
+        
+        let destinationViewController2 = segue.destinationViewController as? AllyViewController
+        destinationViewController2?.userData = userData
+        destinationViewController2?.rootURL = rootURL
+        destinationViewController2?.uid = uid
     }
-
 
 }
 
