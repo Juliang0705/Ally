@@ -18,6 +18,7 @@ class AllyInfoViewController: UIViewController,UITableViewDataSource,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.title = "Available Allies"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = 80

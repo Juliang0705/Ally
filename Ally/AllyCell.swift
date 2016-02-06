@@ -12,9 +12,8 @@ class AllyCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
-   
-    @IBOutlet weak var pictureImage: UIImageView!
 
+    @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
     

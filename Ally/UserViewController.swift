@@ -17,12 +17,10 @@ class UserViewController: UIViewController {
     
     @IBOutlet weak var button1: UIButton!
     
-    @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         button1.layer.cornerRadius = 10
-        button2.layer.cornerRadius = 10
         button3.layer.cornerRadius = 10
 
         /*!!!!!!!!!!!!!!!!!ONLY WORK ON PHONE!!!!!!!!!!!*/
@@ -32,10 +30,7 @@ class UserViewController: UIViewController {
     @IBAction func nonEmergencyButtonClicked(sender: UIButton) {
         
     }
-
-    @IBAction func emergencyButtonClicked(sender: UIButton) {
-        
-    }
+    
     @IBAction func seeAlliesOnMapButtonClicked(sender: UIButton) {
         self.performSegueWithIdentifier("MapViewController", sender: self)
     }

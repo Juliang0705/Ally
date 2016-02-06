@@ -14,7 +14,7 @@ class AllyViewController: UIViewController {
     var userData: (UserType,NSDictionary?)?
     var rootURL:String?
     var uid:String?
-    var location:(Double,Double)? = nil
+    var location:(Double,Double)?
     @IBOutlet weak var detailText: UITextView!
     
     @IBOutlet weak var sharedButton: UIButton!
@@ -24,11 +24,9 @@ class AllyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let locationGetter = Location()
-        location = locationGetter.getCurrentLocation()
+        self.navigationController?.title = "Ally"
         sharedButton.layer.cornerRadius = 10
-        print (userData)
-        print (uid)
+        print(location)
     }
     
     @IBAction func SwitchChanged(sender: UISwitch) {
@@ -45,6 +43,7 @@ class AllyViewController: UIViewController {
     }
     @IBAction func shareLocationButtonClicked(sender: AnyObject) {
         let ref = Firebase(url: rootURL! + "ally/\(self.uid!)")
+        print(self.location)
         if let location = self.location{
             ref.updateChildValues(["latitude":location.0])
             ref.updateChildValues(["longitude":location.1])

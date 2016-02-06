@@ -24,7 +24,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var typeSegment: UISegmentedControl!
     
     @IBOutlet weak var submitButton: UIButton!
-    
+    var location:(Double,Double)? = nil
+    let locationGetter = Location()
     override func viewDidLoad() {
         super.viewDidLoad()
         initGUI()
@@ -93,6 +94,7 @@ class LoginViewController: UIViewController {
         destinationViewController2?.userData = userData
         destinationViewController2?.rootURL = rootURL
         destinationViewController2?.uid = uid
+        destinationViewController2?.location = self.locationGetter.getCurrentLocation()
     }
 
 }

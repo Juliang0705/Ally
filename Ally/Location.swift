@@ -14,10 +14,10 @@ class Location: NSObject,CLLocationManagerDelegate{
     var currentLocation:(Double,Double)?
     override init(){
         super.init()
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
         update()
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -25,10 +25,10 @@ class Location: NSObject,CLLocationManagerDelegate{
         let location = locations.last! as CLLocation
         currentLocation = (location.coordinate.latitude,location.coordinate.longitude)
         locationManager.stopUpdatingLocation()
+        print ("Did update location \(currentLocation)")
     }
 
     func getCurrentLocation() -> (Double,Double)?{
-        update()
         return currentLocation
     }
     func update(){

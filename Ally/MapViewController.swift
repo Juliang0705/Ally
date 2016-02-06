@@ -22,6 +22,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.title = "All Allies On Map"
         map.delegate = self
         setupMap()
     }
