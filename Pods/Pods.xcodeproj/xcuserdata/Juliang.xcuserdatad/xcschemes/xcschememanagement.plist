@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FirebaseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Ally.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,7 +22,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1116F1420E6CDBB56319A6CDE8570D79</key>
+		<key>44A36518FFEE7556DD33E59FDA2C1532</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F869A0A80C706D6A6D4698DC0918B37</key>
 		<dict>
 			<key>primary</key>
 			<true/>

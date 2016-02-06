@@ -17,7 +17,9 @@ class AllyCell: UITableViewCell {
 
     
     @IBOutlet weak var emailLabel: UILabel!
-         override func awakeFromNib() {
+    
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

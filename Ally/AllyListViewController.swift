@@ -8,59 +8,54 @@
 
 import UIKit
 import Firebase
-import FirebaseUI
 
 class AllyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     
     var allyData: NSDictionary?
     var email: String?
     let ref = Firebase(url: "https://sizzling-heat-3815.firebaseio.com/ally")
+    var allyDataArray:[(String,String)] = []
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var dataSource: FireBaseTableViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        populateCell()
+    }
+    
+    func populateCell(){
         
-        self.dataSource = FirebaseTableViewDataSource(ref: self.ref, cellReuseIdentifier: "AllyCell", view: self.tableView)
-        // Do any additional setup after loading the view.
+        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            self.allyData = snapshot.value as? NSDictionary
+            if let data = self.allyData{
+                for (_,obj) in data{
+                    let value = obj as? NSDictionary
+                    var tuple:(String,String) = ("","")
+                    tuple.0 = (value?.valueForKey("name") as? String)!
+                    tuple.1 = (value?.valueForKey("email") as? String)!
+                    self.allyDataArray.append(tuple)
+                }
+                self.tableView.reloadData()
+            }
+        })
+
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
+        return allyDataArray.count
         
     }
     
-//    func populateCell(){
-//        let allyRef = Firebase(url: rootURL! + "ally")
-//        allyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            self.allyData = snapshot.value as? NSDictionary
-//            if let data = self.allyData{
-//                for (key,obj) in data{
-//                    let value = obj as? NSDictionary
-//                    let latitude = value?.valueForKey("latitude") as? Double
-//                    let longitude = value?.valueForKey("longitude") as? Double
-//                    self.email = (value?.valueForKey("email") as? String)!
-//                    
-//                }
-//            }
-//        })
-//
-//    }
-    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-//        
-//        return 1
-//        
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        self.dataSource
-//        return cell
-//    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AllyCell") as! AllyCell
+        cell.nameLabel.text = allyDataArray[indexPath.row].0
+        cell.emailLabel.text = allyDataArray[indexPath.row].1
+        return cell
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
