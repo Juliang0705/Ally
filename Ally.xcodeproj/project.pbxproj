@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		051D773263435E62B2A24E96 /* Pods_Ally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F89359575098641D5643DE8 /* Pods_Ally.framework */; };
+		056E8E821C663D0D008AB785 /* AllyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056E8E811C663D0D008AB785 /* AllyCell.swift */; };
+		056E8E851C663FD6008AB785 /* AllyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056E8E841C663FD6008AB785 /* AllyListViewController.swift */; };
 		38B39F451C6591AA00EC433A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F441C6591AA00EC433A /* AppDelegate.swift */; };
 		38B39F471C6591AA00EC433A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B39F461C6591AA00EC433A /* ViewController.swift */; };
 		38B39F4A1C6591AA00EC433A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B39F481C6591AA00EC433A /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		0335D3A5ACABF7772542C2A1 /* Pods-Ally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ally.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ally/Pods-Ally.debug.xcconfig"; sourceTree = "<group>"; };
+		056E8E811C663D0D008AB785 /* AllyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllyCell.swift; sourceTree = "<group>"; };
+		056E8E841C663FD6008AB785 /* AllyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllyListViewController.swift; sourceTree = "<group>"; };
 		38B39F411C6591AA00EC433A /* Ally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B39F441C6591AA00EC433A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B39F461C6591AA00EC433A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		056E8E831C663F37008AB785 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				056E8E811C663D0D008AB785 /* AllyCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		38B39F381C6591AA00EC433A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +81,7 @@
 		38B39F431C6591AA00EC433A /* Ally */ = {
 			isa = PBXGroup;
 			children = (
+				056E8E831C663F37008AB785 /* View */,
 				38B39F591C6596A700EC433A /* Model */,
 				38B39F571C65968F00EC433A /* ViewController */,
 				38B39F561C65968A00EC433A /* API */,
@@ -95,6 +108,7 @@
 				38B39F5C1C65CF0500EC433A /* UserViewController.swift */,
 				38B39F5E1C65DAB300EC433A /* MapViewController.swift */,
 				38B39F621C65F91E00EC433A /* AllyInfoViewController.swift */,
+				056E8E841C663FD6008AB785 /* AllyListViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -250,6 +264,8 @@
 				38B39F471C6591AA00EC433A /* ViewController.swift in Sources */,
 				38B39F5D1C65CF0500EC433A /* UserViewController.swift in Sources */,
 				38B39F631C65F91E00EC433A /* AllyInfoViewController.swift in Sources */,
+				056E8E821C663D0D008AB785 /* AllyCell.swift in Sources */,
+				056E8E851C663FD6008AB785 /* AllyListViewController.swift in Sources */,
 				38B39F611C65DED200EC433A /* Location.swift in Sources */,
 				38B39F451C6591AA00EC433A /* AppDelegate.swift in Sources */,
 				38B39F5F1C65DAB300EC433A /* MapViewController.swift in Sources */,

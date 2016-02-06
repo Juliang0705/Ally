@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Ally/Firebase.framework"
+  install_framework "Pods-Ally/FirebaseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Ally/Firebase.framework"
+  install_framework "Pods-Ally/FirebaseUI.framework"
 fi
