@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'Ally' do
 pod 'Firebase', '>= 2.5.0'
+pod ‘FirebaseUI’, ‘~> 0.2.0’
 end
 
