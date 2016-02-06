@@ -7,17 +7,74 @@
 //
 
 import UIKit
+import Firebase
 
-class ViewController: UIViewController {
+enum UserType{
+    case ALLY
+    case USER
+}
+class LoginViewController: UIViewController {
 
+    let rootURL = "https://sizzling-heat-3815.firebaseio.com/"
+    var rootRef = Firebase(url: "https://sizzling-heat-3815.firebaseio.com/")
+    var uid:String = ""
+    var userData: (UserType,NSDictionary?)?
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var typeSegment: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initGUI()
+    }
+    
+    func initGUI(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        passwordTextField.secureTextEntry = true
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func submitButtonClicked(sender: UIButton) {
+        let username = userNameTextField.text!
+        let password = passwordTextField.text!
+        let userType = typeSegment.selectedSegmentIndex
+        rootRef.authUser(username, password: password){ error,result -> Void in
+            if error == nil{
+                print ("Login Succeeded")
+                self.uid = result.uid
+                if userType == 0{ // is ally
+                    let allyRef = self.rootRef.childByAppendingPath("ally/\(self.uid)")
+                    allyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        self.userData = (UserType.ALLY,snapshot.value as?NSDictionary)
+                        print (self.userData?.1)
+                    })
+                }else if userType == 1{ // is user
+                    let userRef = self.rootRef.childByAppendingPath("user/\(self.uid)")
+                    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        self.userData = (UserType.USER,snapshot.value as?NSDictionary)
+                    })
+                    self.performSegueWithIdentifier("UserViewController", sender: self)
+                }
+            }else{
+                //fail
+                print("Login Failed")
+                let alert = UIAlertController(title: nil, message: "Login Error", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                self.presentViewController(alert,animated: true,completion: nil)
+            }
+        }
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController as? UserViewController
+        destinationViewController?.userData = userData
+        destinationViewController?.rootURL = rootURL
     }
 
 
