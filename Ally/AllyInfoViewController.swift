@@ -8,21 +8,50 @@
 
 import UIKit
 
-class AllyInfoViewController: UIViewController {
+class AllyInfoViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var allyInfo: NSDictionary?
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var dataArray:[(String,String)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (allyInfo)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableViewAutomaticDimension
+        extractDataFromDictionary()
+        tableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func extractDataFromDictionary() {
+        if let name = allyInfo!["name"] as? String{
+            dataArray.append(("Name: ",name))
+        }
+        if let phone = allyInfo!["phone"] as? String{
+            dataArray.append(("Phone: ",phone))
+        }
+        if let email = allyInfo!["email"] as? String{
+            dataArray.append(("Email: ",email))
+        }
+        if let office = allyInfo!["office"] as? String{
+            dataArray.append(("Office: ",office))
+        }
+        if let brief = allyInfo!["brief"] as? String{
+            dataArray.append(("brief: ",brief))
+        }
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5;
     }
     
-
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AllyInfoCell", forIndexPath: indexPath) as! AllyInfoTableViewCell
+        cell.titleLabel.text = dataArray[indexPath.row].0
+        cell.descriptionLabel.text = dataArray[indexPath.row].1
+        return cell
+    }
     /*
     // MARK: - Navigation
 

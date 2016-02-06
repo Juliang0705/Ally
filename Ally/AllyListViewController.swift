@@ -51,7 +51,7 @@ class AllyListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AllyCell") as! AllyCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AllyCell", forIndexPath: indexPath) as! AllyCell
         cell.nameLabel.text = allyDataArray[indexPath.row].0
         cell.emailLabel.text = allyDataArray[indexPath.row].1
         return cell

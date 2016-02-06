@@ -45,13 +45,15 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             if let data = self.allyData{
                 for (key,obj) in data{
                     let value = obj as? NSDictionary
-                    let dropPin = MKPointAnnotation()
-                    let latitude = value?.valueForKey("latitude") as? Double
-                    let longitude = value?.valueForKey("longitude") as? Double
-                    dropPin.coordinate = CLLocationCoordinate2DMake(latitude!,longitude!)
-                    dropPin.title = value?.valueForKey("name") as? String
-                    self.map.addAnnotation(dropPin)
-                    self.nameKeyDict[(value?.valueForKey("name") as? String)!] = key as? String
+                    if let latitude = value?.valueForKey("latitude") as? Double{
+                        if let longitude = value?.valueForKey("longitude") as? Double {
+                            let dropPin = MKPointAnnotation()
+                            dropPin.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+                            dropPin.title = value?.valueForKey("name") as? String
+                            self.map.addAnnotation(dropPin)
+                            self.nameKeyDict[(value?.valueForKey("name") as? String)!] = key as? String
+                        }
+                    }
                 }
             }
         })
