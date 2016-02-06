@@ -14,8 +14,17 @@ class UserViewController: UIViewController {
     var userData: (UserType,NSDictionary?)?
     var rootURL:String?
     var location:(Double,Double)? = (30.6014, -96.3144)
+    
+    @IBOutlet weak var button1: UIButton!
+    
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        button1.layer.cornerRadius = 10
+        button2.layer.cornerRadius = 10
+        button3.layer.cornerRadius = 10
+
         /*!!!!!!!!!!!!!!!!!ONLY WORK ON PHONE!!!!!!!!!!!*/
   //      let locationGetter = Location()
   //      location = locationGetter.getCurrentLocation()

@@ -17,6 +17,7 @@ class AllyViewController: UIViewController {
     var location:(Double,Double)? = nil
     @IBOutlet weak var detailText: UITextView!
     
+    @IBOutlet weak var sharedButton: UIButton!
     let onMessage = "You are visible to the users that are seeking help now. You may receive text message or emails from users. Click share my coordinate to make your current location visible too."
     
     let offMessage = "You are invisible to the users now. Switch it back on to help others."
@@ -25,14 +26,16 @@ class AllyViewController: UIViewController {
         super.viewDidLoad()
         let locationGetter = Location()
         location = locationGetter.getCurrentLocation()
+        sharedButton.layer.cornerRadius = 10
         print (userData)
         print (uid)
     }
     
     @IBAction func SwitchChanged(sender: UISwitch) {
-        let value = sender.state.rawValue
-        let ref = Firebase(url: rootURL! + "ally/\(self.uid)")
-        if (value == 1){ // turn on
+        let value = sender.on
+        print(value)
+        let ref = Firebase(url: rootURL! + "ally/\(self.uid!)")
+        if (value){ // turn on
             ref.updateChildValues(["availability":"true"])
             detailText.text = onMessage
         }else{ // turn off
@@ -41,7 +44,7 @@ class AllyViewController: UIViewController {
         }
     }
     @IBAction func shareLocationButtonClicked(sender: AnyObject) {
-        let ref = Firebase(url: rootURL! + "ally/\(self.uid)")
+        let ref = Firebase(url: rootURL! + "ally/\(self.uid!)")
         if let location = self.location{
             ref.updateChildValues(["latitude":location.0])
             ref.updateChildValues(["longitude":location.1])

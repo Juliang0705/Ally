@@ -38,12 +38,12 @@ class AllyInfoViewController: UIViewController,UITableViewDataSource,UITableView
         if let office = allyInfo!["office"] as? String{
             dataArray.append(("Office: ",office))
         }
-        if let brief = allyInfo!["brief"] as? String{
+       /* if let brief = allyInfo!["brief"] as? String{
             dataArray.append(("brief: ",brief))
-        }
+        }*/
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return 4;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

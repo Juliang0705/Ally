@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!
     
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         passwordTextField.secureTextEntry = true
-        
+        submitButton.layer.cornerRadius = 10
     }
 
     @IBAction func submitButtonClicked(sender: UIButton) {
