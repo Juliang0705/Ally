@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+   link(href='https://fonts.googleapis.com/css?family=Sanchez|Open+Sans', rel='stylesheet',type='text/css')
+   link(href='/static/css/style.css', rel='stylesheet', type='text/css')
+   title Aggie Allies
+   div.nav
+  body
+   div.welcome-jumbo
+    h1 Welcome.
+    h2 Aggie Allies provide a safe haven, a listening ear, and support for lesbian, gay, bisexual, and transgender people or anyone dealing with sexual orientation issues. This service aims to connect those in need of help with Aggie Allies across campus.
+   div.signin-jumbo
+    h1 Sign Up
+    h2 It's free and anonymous for users.
+    div.left
+      h2 Allies
+      form(class= "ally-form", method="post", id="ally-form", action="/ally-success")
+       //allies form
+       input(type="text", name="name", placeholder="Full Name")
+       br
+       input(type="text", name="email", placeholder="E-mail Address")
+       br
+       input(type="password",  name="password", placeholder="Password")
+       br
+       // office location
+       input(type="text", name="office", placeholder="Office Location")
+       br
+       // phone
+       input(type="text", name="phone", placeholder="Phone Number")
+       br
+       // availability (no by defaults)
+       // just pass in
+       input(type="submit", name="submit")    
+  
+    // other users
+    //
+    div.right
+      h2 Users
+      form(method="post", class= "user-form", action="/user-success")
+       input(type="text", name="email", placeholder="E-mail Address")
+       br
+       input(type="password",  name="password", placeholder="Password")
+       br
+       input(type="text", name="phone", placeholder="Phone Number")
+       br
+       input(type="submit", name="submit")

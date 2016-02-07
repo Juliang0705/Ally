@@ -1,0 +1,24 @@
+{
+  "name": "build-day-2016",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluyam/build-day-2016.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluyam/build-day-2016/issues"
+  },
+  "homepage": "https://github.com/bluyam/build-day-2016#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "firebase": "^2.4.0",
+    "jade": "^1.11.0"
+  }
+}

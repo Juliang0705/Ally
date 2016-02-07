@@ -1,0 +1,93 @@
+html {
+  margin: 0;
+}
+
+body {
+  font-family: 'Sanchez', serif;
+  margin: 0;
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #f5a9b8
+}
+
+.welcome-jumbo {
+  text-align: center;
+  height: 400px;
+}
+
+h1 {
+  font-family: 'Sanchez', serif;
+  padding-top: .75em;
+  font-size: 72px;
+}
+
+h2 {
+  margin-top: 0 auto;
+  font-family: 'Sanchez', serif;
+  font-weight: normal;
+  font-size: 20px;
+  margin-left: 175px;
+  margin-right: 175px;
+}
+
+.signin-jumbo {
+  color: #FFFFFF;
+  text-align: center;
+  background-color: #5bcefa;
+  height: 850px;
+  overflow: hidden;
+}
+
+.left {
+  float: left;
+  width: 50%;
+}
+
+.right {
+  float: right;
+  width: 50%
+}
+
+input {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  margin-bottom: 18px;
+  font-size: 18px;
+  outline: none;
+  appearance: none;
+  border: 0;
+  background-color: #5bcefa;
+  border-bottom: 2px solid white;
+  box-shadow: none;
+}
+
+input:focus {
+  width: 200px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: white;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: white;
+  opacity: 0.8;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  background: #ffffff; 
+  border:0 none;
+  cursor:pointer;
+  height: 40px;
+  width: 225px;
+  color: #5bcefa;
+  font-family: 'Sanchez', serif;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
